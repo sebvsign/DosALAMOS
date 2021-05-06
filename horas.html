@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reserva|</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="images/home-img.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/reserva.css">
+    <!--??? ESTILO DE LA LETRA ???-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h4>Dos Alamos</h4>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="nav.html">Home</a>
+                </li>
+                <li>
+                    <a href="#">Horas Disponibles</a>
+                </li>
+                <li>
+                    <a href="#">Recaudacion</a>
+                </li>
+                <li>
+                    <a href="#">En espera</a>
+                </li>
+                <li>
+                    <a href="Login.html">Inicio Sesion / Registrarse</a>
+                </li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        <section>
+            <div class="contenedor-sobre-dosalamos">
+                <div class="divplay">
+                    <img src="images/home-img.png" alt="" class="imagen-about-us">
+                </div>
+                
+                <!--??? SE PUEDE MODIFCAR EN CSS QUE SE ENCUENTRA SU CLASE ???-->
+                <div class="contenido-textos">
+                    <!-- Se HACE FORMULARIO -->
+                    <form action="" class="formulario" onsubmit="return validarFormulario()" name = "formulario_registro" method="post" id="form1">
+                        <div class="form-register">
+                            <h4>Reserva de Horas</h4>
+    
+                            <input class="controls" type="text" id="Nombre" name="Nombre" placeholder="Ingrese su RUT. Ejemplo: 1111111-k">
+                            
+                            <input type="checkbox" name="micheckbox" id="terminos" value="true">
+                            <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</p>
+                            <p>Tambien puede : <a href="#">Ver horas pendientes</p>
+                            <input class="botons" type="submit" id="btn-submit" value="Aceptar">
+                           
+                            <div id = "info"> </div>
+    
+    
+                            
+                        </div>    
+                    </form>
+    
+                </div>
+            </div>
+        </section>
+    </header>
+
+            
+    <footer>
+        <div class="contenedor-footer">
+            <div class="content-foo">
+                <h4>Fono</h4>
+                <p>2-265443211</p>
+            </div>
+            <div class="content-foo">
+                <h4>Email</h4>
+                <p>dosalamos@hotmail.cl</p>
+            </div>
+            <div class="content-foo">
+                <h4>Location</h4>
+                <p>01001000 </p>
+            </div>
+        </div>
+        <h2 class="titulo-final">&copy; ---- </h2>
+    </footer>
+    <script src="js/jquery-3.1.1.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/hrs.js"></script>
+</body>
+</html>
