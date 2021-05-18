@@ -22,10 +22,10 @@
                     <a href="nav.html">Home</a>
                 </li>
                 <li>
-                    <a href="horas.html">Horas Disponibles</a>
+                    <a href="reserva.html">Horas Disponibles</a>
                 </li>
                 <li>
-                    <a href="#">Recaudacion</a>
+                    <a href="recaudacion.html">Recaudacion</a>
                 </li>
                 <li>
                     <a href="#">En espera</a>
@@ -43,7 +43,7 @@
     </header>
     <main>
         <section class="contenedor sobre-dosalamos">
-            <form action="" class="formulario">
+            <form action="" class="formulario" id="formulario">
                 <img src="images/reserva.png" class="imgLogo" />
           
                 <h1 class="formulario__titulo">Reservas de</h1>
@@ -51,29 +51,49 @@
                 <p class="formulario__parrafo">
                   Llena este pequeño formulario para agendar hora medica.
                 </p>
-          
-                <label for="paciente" class="formulario__label">¿Cuál es tu nombre completo?</label>
-                <input
-                  id="paciente"
-                  type="text"
-                  class="formulario__input"
-                  placeholder="Indica cuál es tu nombre completo"
-                />
 
                 <label for="rut" class="formulario__label">Indique su rut cumpleto sin puntos con guion</label>
                 <input
                   id="rut"
                   type="text"
                   class="formulario__input"
+                  name="rut"
                   placeholder="Ejemplo: 11111111-1"
                 />
                 
-          
+                <label for="paciente" class="formulario__label">¿Cuál es tu nombre completo?</label>
+                <input
+                  id="paciente"
+                  type="text"
+                  name="paciente"
+                  class="formulario__input"
+                  placeholder="Indica cuál es tu nombre completo"
+                />
+
+                <label for="apaterno" class="formulario__label">¿Cuál es tu apellido paterno completo?</label>
+                <input
+                  id="apaterno"
+                  type="text"
+                  name="apaterno"
+                  class="formulario__input"
+                  placeholder="Indica cuál es tu apellido paterno"
+                />
+
+                <label for="amaterno" class="formulario__label">¿Cuál es tu apellido materno completo?</label>
+                <input
+                  id="amaterno"
+                  type="text"
+                  name="amaterno"
+                  class="formulario__input"
+                  placeholder="Indica cuál es tu apellido materno"
+                />
+
+                
 
                 <label for="empleado" class="formulario__label"
                 >Especialidad </label
               >
-              <select id="Especialidad" name="listaempleados" class="formulario__input">
+              <select id="Especialidad" name="Especialidad" class="formulario__input">
                 <option>Obstetricia 1</option>
                 <option>x 2</option>
               </select>
@@ -82,31 +102,26 @@
                 >¿Cuál es el medico que desea?</label
               >
               <select id="servicio" name="listaservicios" class="formulario__input">
-                <option>MEDICO 1 - $VALOR</option>
-                <option>MEDICO 2 - $VALOR</option>
-                <option>MEDICO 3 - $VALOR</option>
-                <option>MEDICO 4 - $VALOR</option>
-                <option>MEDICO 5 - $VALOR</option>
+                <option>MEDICO 1</option>
+                <option>MEDICO 2</option>
+                <option>MEDICO 3</option>
+                <option>MEDICO 4</option>
+                <option>MEDICO 5</option>
               </select>
+
                 <label for="fecha" class="formulario__label"
                   >Indica la fecha de tu reserva</label
                 >
-                <input
-                  id="fecha"
-                  type="date"
-                  class="formulario__input"
-                  pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-                />
-                <label for="hora" class="formulario__label"
-                  >Indica la hora de tu reserva</label
-                >
-                <input id="hora" type="time" class="formulario__input" />
-          
-                
+
+               <select id="hora" name="hora" class="formulario__input">
+
+                 <option>HORA 1 : 16:00</option>
+                 <option>HORA 2 : 17:30</option>
+                </select>
           
                 <div id="respuesta"></div>
           
-                <button id="submit" class="formulario__submit">Enviar</button>
+                <button type="submit" id="submit" class="formulario__submit">Enviar</button>
               </form>
         </section>
     </main>
