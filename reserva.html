@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="images/home-img.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/reserva.css">
-    <title>Navegador</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Reserva</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/reservav1.css">
 </head>
 <body>
-    <header>
+	<header>
         <nav>
             <div class="logo">
                 <h4>Dos Alamos</h4>
@@ -28,10 +26,10 @@
                     <a href="recaudacion.html">Recaudacion</a>
                 </li>
                 <li>
-                    <a href="#">En espera</a>
+                    <a href="vistamedico.html">En espera</a>
                 </li>
                 <li>
-                    <a href="Login.html">Acceso Medicos</a>
+                    <a href="Login.html">Inicio Sesion / Registrarse</a>
                 </li>
             </ul>
             <div class="burger">
@@ -41,10 +39,12 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section class="contenedor sobre-dosalamos">
-            <form action="" class="formulario" id="formulario">
-                <img src="images/reserva.png" class="imgLogo" />
+
+	<main>
+		<section class="contenedor sobre-dosalamos">
+			<form action="" class="formulario" id="formulario">
+
+				<img src="images/reserva.png" class="imgLogo" />
           
                 <h1 class="formulario__titulo">Reservas de</h1>
                 <h3 class="formulario__subtitulo">Horas</h3>
@@ -52,87 +52,139 @@
                   Llena este pequeño formulario para agendar hora medica.
                 </p>
 
-                <label for="rut" class="formulario__label">Indique su rut cumpleto sin puntos con guion</label>
-                <input
-                  id="rut"
-                  type="text"
-                  class="formulario__input"
-                  name="rut"
-                  placeholder="Ejemplo: 11111111-1"
-                />
-                
-                <label for="paciente" class="formulario__label">¿Cuál es tu nombre completo?</label>
-                <input
-                  id="paciente"
-                  type="text"
-                  name="paciente"
-                  class="formulario__input"
-                  placeholder="Indica cuál es tu nombre completo"
-                />
-
-                <label for="apaterno" class="formulario__label">¿Cuál es tu apellido paterno completo?</label>
-                <input
-                  id="apaterno"
-                  type="text"
-                  name="apaterno"
-                  class="formulario__input"
-                  placeholder="Indica cuál es tu apellido paterno"
-                />
-
-                <label for="amaterno" class="formulario__label">¿Cuál es tu apellido materno completo?</label>
-                <input
-                  id="amaterno"
-                  type="text"
-                  name="amaterno"
-                  class="formulario__input"
-                  placeholder="Indica cuál es tu apellido materno"
-                />
+				<!-- grupo rut -->
 
                 
+                <div class="formulario__grupo" id="grupo__rut">
+					<label for="rut" class="formulario__label">Indique su rut cumpleto sin puntos con guion</label>
+					<div class="formulario__grupo-input">
+					  <input type="text" class="formulario__input" name="rut" id="rut" placeholder="Ejemplo: 11111111-1">
+					  <i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">El rut usuario tiene que ser de 9 a 10 dígitos y solo puede contener numeros y guion (sin puntos).</p>
+				  </div>
+	
+				<!-- Grupo: Nombre -->
 
-                <label for="empleado" class="formulario__label"
-                >Especialidad </label
-              >
-              <select id="Especialidad" name="Especialidad" class="formulario__input">
-                <option>Obstetricia 1</option>
-                <option>x 2</option>
-              </select>
-        
-              <label for="servicio" class="formulario__label"
-                >¿Cuál es el medico que desea?</label
-              >
-              <select id="servicio" name="listaservicios" class="formulario__input">
-                <option>MEDICO 1</option>
-                <option>MEDICO 2</option>
-                <option>MEDICO 3</option>
-                <option>MEDICO 4</option>
-                <option>MEDICO 5</option>
-              </select>
+				<div class="formulario__grupo" id="grupo__nombre">
+					<label for="nombre" class="formulario__label">Indique su nombre</label>
+					<div class="formulario__grupo-input">
+						<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Juan">
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+				</div>
 
-                <label for="fecha" class="formulario__label"
-                  >Indica la fecha de tu reserva</label
-                >
-                <input
-                id="fecha"
-                type="date"
-                class="formulario__input"
-                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
-              />
-               <select id="hora" name="hora" class="formulario__input">
+				<!-- Grupo: apellido paterno -->
 
-                 <option>HORA 1 : 16:00</option>
-                 <option>HORA 2 : 17:30</option>
-                </select>
-          
-                <div id="respuesta"></div>
-          
-                <button type="submit" id="submit" class="formulario__submit">Enviar</button>
-              </form>
-        </section>
-    </main>
+				<div class="formulario__grupo" id="grupo__paterno">
+					<label for="paterno" class="formulario__label">Indique su Apellido Paterno</label>
+					<div class="formulario__grupo-input">
+						<input type="text" class="formulario__input" name="paterno" id="paterno" placeholder="Gonzales">
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">El apellido tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+				</div>
 
-        
-    <footer>
+				<!-- Grupo: apellido materno -->
+
+				<div class="formulario__grupo" id="grupo__materno">
+					<label for="materno" class="formulario__label">Indique su Apellido Materno</label>
+					<div class="formulario__grupo-input">
+						<input type="text" class="formulario__input" name="materno" id="materno" placeholder="Canales">
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+				</div>
+	
+				<!-- Grupo: Correo Electronico -->
+				<div class="formulario__grupo" id="grupo__correo">
+					<label for="correo" class="formulario__label">Correo Electrónico</label>
+					<div class="formulario__grupo-input">
+						<input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+				</div>
+	
+				<!-- Grupo: Teléfono -->
+				<div class="formulario__grupo" id="grupo__telefono">
+					<label for="telefono" class="formulario__label">Teléfono</label>
+					<div class="formulario__grupo-input">
+						<input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="979828107">
+						<i class="formulario__validacion-estado fas fa-times-circle"></i>
+					</div>
+					<p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+				</div>
+                <!-- grupo fecha nacimiento -->
+
+				<label for="fechaNacimiento" class="formulario__label">¿Cuál es tu fecha nacimiento?</label>
+				<input
+				id="fechaNacimiento"
+				type="date"
+				class="formulario__input"
+				pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+
+
+                <!-- grupo asignacion sexo-->
+				<label for="sexo" class="formulario__label">Sexo</label>
+              	<select id="sexo" name="sexo" class="formulario__input">
+					<option>seleccione sexualidad</option>
+					<option>Masculino</option>
+                	<option>Femenino</option>
+                	<option>Otro</option>
+               	</select>
+
+				<!-- grupo asignacion especialidad-->
+				<label for="especialidad" class="formulario__label">Especialidad </label>
+              	<select id="especialidad" name="especialidad" class="formulario__input">
+					<option>seleccione especialidad</option>
+                	<option>Obstetricia 1</option>
+                	<option>x 2</option>
+              	</select>
+
+
+				<!-- grupo asignacion medico-->
+				<label for="servicio" class="formulario__label">¿Cuál es el medico que desea?</label>
+				<select id="servicio" name="listaservicios" class="formulario__input">
+					<option>seleccione medico</option>
+					<option>MEDICO 1</option>
+                	<option>MEDICO 2</option>
+                	<option>MEDICO 3</option>
+                	<option>MEDICO 4</option>
+                	<option>MEDICO 5</option>
+              	</select>
+
+
+				<!-- grupo fecha reserva -->
+				<label for="fecha" class="formulario__label">Indica la fecha de tu reserva</label>
+			  	<input
+			  	id="fecha"
+			  	type="date"
+			  	class="formulario__input"
+			  	pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+				/>
+				
+				<!-- grupo hora -->
+				<select id="hora" name="hora" class="formulario__input">
+					
+					<option>HORA 1 : 16:00</option>
+					<option>HORA 2 : 17:30</option>
+				</select>
+	
+				<div class="formulario__mensaje" id="formulario__mensaje">
+					<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+				</div>
+	
+				<div class="formulario__grupo formulario__grupo-btn-enviar">
+					<button type="submit" class="formulario__btn">Enviar</button>
+					<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+				</div>
+			</form>
+		</section>
+
+	</main>
+	<footer>
         <div class="contenedor-footer">
             <div class="content-foo">
                 <h4>Fono</h4>
@@ -149,6 +201,7 @@
         </div>
         <h2 class="titulo-final">&copy; ---- </h2>
     </footer>
-    <script src="js/reserva.js"></script>
+	<script src="js/reserva.js"></script>
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </body>
 </html>
