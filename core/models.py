@@ -11,8 +11,6 @@ class Medico(models.Model):
     apaterno = models.CharField(max_length=80)
     especialidad = models.ForeignKey(Especialidad, on_delete=models.CASCADE)
 
-    
-
 class reserva(models.Model):
     rut = models.CharField(max_length=11)
     nombre = models.CharField(max_length=80)

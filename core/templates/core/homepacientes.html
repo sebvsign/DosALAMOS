@@ -111,8 +111,13 @@
 				<label for="especialidad" class="formulario__label">Especialidad </label>
               	<select id="especialidad" name="especialidad" class="formulario__input">
 					<option>seleccione especialidad</option>
-                	<option>Obstetricia 1</option>
-                	<option>x 2</option>
+					
+					{% for m in especialidad %}
+
+					<option value="{{m.id}}">{{ m.especialidad }}</option>
+
+					{% endfor %}
+                	
               	</select>
 
 
@@ -120,17 +125,17 @@
 				<label for="servicio" class="formulario__label">¿Cuál es el medico que desea?</label>
 				<select id="servicio" name="listaservicios" class="formulario__input">
 					<option>seleccione medico</option>
-					<option>MEDICO 1</option>
-                	<option>MEDICO 2</option>
-                	<option>MEDICO 3</option>
-                	<option>MEDICO 4</option>
-                	<option>MEDICO 5</option>
+					{% for i in medico %}
+
+					<option value="{{i.id}}">{{ i.nombreM }}</option>
+
+					{% endfor %}
               	</select>
 
 				<!-- grupo asignacion monto-->
 				<label for="monto" class="formulario__label">Seleccione Monto </label>
 				<select id="monto" name="monto" class="formulario__input">
-				  <option>seleccione especialidad</option>
+				  <option>seleccione Monto</option>
 				  <option>$ 0 </option>
 				  <option>$ 5.000</option>
 				</select>
@@ -157,10 +162,11 @@
 	
 				<div class="formulario__grupo formulario__grupo-btn-enviar">
 					<button type="submit" class="formulario__btn">Enviar</button>
-					<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+					<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">{{ mensaje }}</p>
 				</div>
 			</form>
 		</section>
 	<script src="{% static 'core/js/reserva.js'%}"></script>
 	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<h3>{{ mensaje }}</h3>
 {% endblock %}

@@ -2,7 +2,7 @@ from django.urls import path
 from .views import home, diario,homepacientes, login_medico, login_secretaria, vistamedico, paciente, recaudo, total
 
 urlpatterns = [
-    path('', home, name="name"),
+    path('', home, name="home"),
     path('diario/', diario, name="diario"),
     path('homepacientes/', homepacientes, name="homepacientes"),
     path('login_medico/', login_medico, name="login_medico"),
