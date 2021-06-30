@@ -1,6 +1,8 @@
+from core.forms import ReservaForm
 from django.shortcuts import render, redirect
 from .models import Especialidad,Medico, reserva
 
+from core.forms import ReservaForm
 # Create your views here.
 
 def home(request):
@@ -9,38 +11,48 @@ def home(request):
 def diario(request):
     return render(request, 'core/diario.html')
 
-def homepacientes(request):
+def ReservaView(request):
+    if request.method == 'POST':
+        form = ReservaForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('core:reserva')
+    else:
+        form = ReservaForm()
+    return render (request, 'core/reserva.html', {'form':form})
 
-    especialidad , medico = Especialidad.objects.all, Medico.objects.all 
+#def homepacientes(request):
 
-    variables = {
-        'especialidad': especialidad,
-        'medico': medico
-    }
+#    especialidad , medico = Especialidad.objects.all, Medico.objects.all 
 
-    if request.POST:
-        Reserva = reserva()
-        Reserva.rut = request.POST.get('rut')
-        Reserva.nombre = request.POST.get('nombre')
-        Reserva.apaterno = request.POST.get('paterno')
-        Reserva.amaterno = request.POST.get('materno')
-        Reserva.correo = request.POST.get('correo')
-        Reserva.fecha_nacimiento = request.POST.get('fechaNacimiento')
-        Reserva.sexo = request.POST.get('sexo')
-        especialidad = Especialidad
-        Especialidad.id = request.POST.get('especialidad')
-        medico = Medico()
-        Medico.id = request.POST.get('servicio')
-        Reserva.montoR = request.POST.get('monto')
-        Reserva.fecha_reservaR = request.POST.get('fecha')
-        Reserva.horaR = request.POST.get('hora')
-        try:
-            Reserva.save()
-            variables['mensaje'] = 'guardado correcctamente'
-        except:
-            variables['mensaje'] = 'error al guardar'
+#    variables = {
+#        'especialidad': especialidad,
+#        'medico': medico
+#    }
+
+#    if request.POST:
+#        Reserva = reserva()
+#        Reserva.rut = request.POST.get('rut')
+#        Reserva.nombre = request.POST.get('nombre')
+#        Reserva.apaterno = request.POST.get('paterno')
+#        Reserva.amaterno = request.POST.get('materno')
+#        Reserva.correo = request.POST.get('correo')
+#        Reserva.fecha_nacimiento = request.POST.get('fechaNacimiento')
+#        Reserva.sexo = request.POST.get('sexo')
+#        especialidad = Especialidad
+#        Especialidad.id = request.POST.get('especialidad')
+#        medico = Medico()
+#        Medico.id = request.POST.get('servicio')
+#        Reserva.montoR = request.POST.get('monto')
+#        Reserva.fecha_reservaR = request.POST.get('fecha')
+#        Reserva.horaR = request.POST.get('hora')
+#        try:
+#            Reserva.save()
+#            variables['mensaje'] = 'guardado correcctamente'
+#        except:
+#            variables['mensaje'] = 'error al guardar'
             
-    return render(request, 'core/homepacientes.html',variables)
+ #   return render(request, 'core/homepacientes.html',variables)
     
 
 def login_medico(request):

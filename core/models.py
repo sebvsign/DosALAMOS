@@ -32,12 +32,18 @@ class Hora(models.Model):
         return str(self.id) + ' - ' + str(self.fecha_reservaR) + ' - ' +str(self.nombreM)
 
 class reserva(models.Model):
-    rut = models.CharField(max_length=11)
-    nombre = models.CharField(max_length=80, blank=True)
-    apellidos = models.CharField(max_length=100, blank=True)
-    correo = models.EmailField(max_length = 200)
-    fecha_nacimiento = models.DateField()
-    sexo = models.CharField(max_length=20)
+    JOB_CHOICES = (
+        ('0', 'Masculino'),
+        ('1', 'Femenino'),
+        ('2', 'OTRO'),
+    )
+
+    rut = models.CharField('rut',max_length=11)
+    nombre = models.CharField('nombre',max_length=80, blank=True)
+    apellidos = models.CharField('apellidos', max_length=100, blank=True)
+    correo = models.EmailField('correo',max_length = 200)
+    fecha_nacimiento = models.DateField('fecha nacimiento')
+    sexo = models.CharField('sexo', max_length=20, choices= JOB_CHOICES )
     especialidad = models.ForeignKey(Especialidad, on_delete=models.CASCADE)
     nombreM = models.ForeignKey(Hora, on_delete=models.CASCADE, related_name = 'nombre_medico')
     pago = models.ForeignKey(Pago, on_delete=models.CASCADE, blank=True, null=True)
