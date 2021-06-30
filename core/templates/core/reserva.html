@@ -9,7 +9,7 @@
 <link rel="shortcut icon" href="{% static 'core//images/LogoMakr-35FpyE.png'%}" /> {% endblock %} {% block reserva %}
 <section class="contenedor sobre-dosalamos">
     <form method="POST" class="formulario" id="formulario">
-
+        {% csrf_token %}
         <img src="{% static 'core/images/reserva.png'%}" class="imgLogo" />
 
         <h1 class="formulario__titulo">Reservas de</h1>
@@ -18,11 +18,10 @@
             Llena este pequeño formulario para agendar hora medica.
         </p>
 
-        {% csrf_token %} {{ form.as_p }}
-
-        <button type="submit" class="formulario__btn"> Agregar </button>
-
+        {{ form.as_p }}
+        <button type="submit"> Agregar </button>
     </form>
 </section>
 <script src="{% static 'core/js/reserva.js'%}"></script>
+<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 {% endblock %}
