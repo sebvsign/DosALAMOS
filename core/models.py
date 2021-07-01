@@ -2,9 +2,13 @@ from django.db import models
 from django.db.models.fields.related import ForeignKey
 
 # Create your models here.
+
 class Especialidad(models.Model):
     especialidad = models.CharField(max_length=80)
     montoR = models.FloatField(blank=True, null=True)
+
+    def __str__(self):
+        return self.especialidad + ' ' + str(self.montoR)
 
 class Medico(models.Model):
     rut = models.CharField(max_length=11)
@@ -20,6 +24,12 @@ class Hora(models.Model):
     hora = models.TimeField(blank=True, null=True)
     nombreM = models.ForeignKey(Medico, on_delete=models.CASCADE)
 
+    class Meta:
+        unique_together = ('fecha', 'hora')
+
+    def __str__(self) :
+        return self.fecha + ' ' + str(self.hora) + '  ' + str(self.nombreM.nombreM)
+
 class reserva(models.Model):
     SEXO_CHOICES = (
         ('0', 'Masculino'),
@@ -33,9 +43,9 @@ class reserva(models.Model):
     correo = models.EmailField('correo',max_length = 200)
     fecha_nacimiento = models.CharField('Fecha nacimiento',max_length=10, blank=True)
     sexo = models.CharField('sexo', max_length=20, choices= SEXO_CHOICES )
-    Hora = models.ForeignKey(Hora, on_delete=models.CASCADE, related_name='fecha_hora_medico', blank=True, null=True)
+    Hora = models.ForeignKey(Hora, on_delete=models.CASCADE, related_name='fecha_hora_medico', blank=True, null=True, unique=True)
 
-
+    
 
 
 
