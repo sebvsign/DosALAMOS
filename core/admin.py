@@ -1,51 +1,39 @@
 from django.contrib import admin
-from .models import Especialidad, Medico, reserva, Hora, Pago
+from .models import Especialidad, Medico, reserva, Hora
 # Register your models here.
 
 
-
-admin.site.register(reserva)
-
-#######################################
-
-class EspecialidadAdmin(admin.ModelAdmin):
+class ReservaAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
-        'especialidad'
-    )   
-
-admin.site.register(Especialidad, EspecialidadAdmin)
-
-#######################################
-
-class HoraAdmin(admin.ModelAdmin):
-    list_display =(
-        'id',
-        'fecha_reservaR',
-    )
-
-admin.site.register(Hora, HoraAdmin)
-
-#######################################
-
-class MedicoAdmin(admin.ModelAdmin):
-    list_display = (
-        'id',
         'rut',
-        'nombreM',
-        'apaterno',
-        'especialidad'
-    )   
+        'fullname',
+        'correo',
+        'fecha_nacimiento',
+        'sexo',
+        'hora',
+        'Nombre_Medico',
+        'Especialidad',
+        'Monto'
+    )
+    def fullname(self, obj):
+        return obj.nombre + ' ' + obj.apellidos
+    def hora (self, obj):
+        return obj.Hora.fecha+' ' +str(obj.Hora.hora)
+    def Nombre_Medico(self, obj):
+        return obj.Hora.nombreM.nombreM + ' ' + obj.Hora.nombreM.apellidos
+    
+    def Especialidad(self, obj):
+        return obj.Hora.nombreM.especialidad.especialidad
+    
+    def Monto(self, obj):
+        return obj.Hora.nombreM.especialidad.montoR
 
-admin.site.register(Medico, MedicoAdmin)
 
-#######################################
+admin.site.register(reserva, ReservaAdmin)
 
-class MedicoAdmin(admin.ModelAdmin):
-    list_display = (
-        'id',
-        'montoR',
-    )   
+#-------------------------------------------------
 
+admin.site.register(Especialidad)
+admin.site.register(Hora)
+admin.site.register(Medico)
 
-admin.site.register(Pago, MedicoAdmin)
