@@ -13,7 +13,7 @@ class ReservaForm(forms.ModelForm):
             'nombre': 'Nombre',
             'apellidos': 'Apellidos',
             'correo': 'Correo',
-            'fecha_nacimiento': 'FechaNacimiento',
+            'fecha_nacimiento': 'Fecha Nacimiento',
             'sexo': 'Sexo',
             'especialidad': 'Especialidad',
             'nombreM': 'Nombre Medico',

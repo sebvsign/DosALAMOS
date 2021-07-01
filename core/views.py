@@ -1,6 +1,7 @@
 from core.forms import ReservaForm
 from django.shortcuts import render, redirect
 from .models import Especialidad,Medico, reserva
+from django.http import HttpResponse
 
 from core.forms import ReservaForm
 
@@ -17,22 +18,22 @@ def home(request):
 def diario(request):
     return render(request, 'core/diario.html')
 
-#def ReservaView(request):
-#    if request.method == 'POST':
-#        form = ReservaForm(request.POST)
-#        if form.is_valid():
-#            form.save()
-#        return redirect('core:reserva')
-#    else:
-#        form = ReservaForm()
-#    return render (request, 'core/reserva.html', {'form':form})
+def ReservaView(request):
+    if request.method == 'POST':
+        form = ReservaForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('core:reserva')
+    else:
+        form = ReservaForm()
+    return render (request, 'core/reserva.html', {'form':form})
 
 
-class ReservaCreateView(CreateView):
-    template_name = "core/reserva.html"
-    model = reserva
-    fields = ('__all__')
-    success_url = '.'
+#class ReservaCreateView(CreateView):
+#    template_name = "core/reserva.html"
+#    model = reserva
+#    fields = ('__all__')
+#    success_url = '.'
 
 
 
