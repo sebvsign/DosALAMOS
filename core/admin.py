@@ -1,7 +1,9 @@
 from django.contrib import admin
 from .models import Especialidad, Medico, reserva
 # Register your models here.
-
+class ReservaAdmin(admin.ModelAdmin):
+   search_fields =['rut'] 
+   list_per_page = 10
 
 #class ReservaAdmin(admin.ModelAdmin):
 #    list_display = (

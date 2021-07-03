@@ -1,3 +1,4 @@
+from core.admin import ReservaAdmin
 from django.shortcuts import render, redirect
 from .models import Especialidad,Medico, reserva
 from django.http import HttpResponse
@@ -43,4 +44,4 @@ def recaudo(request):
     return render(request, 'core/recaudo.html')
 
 def total(request):
-    return render(request, 'core/total.html')
+        return render(request, 'core/total.html')
