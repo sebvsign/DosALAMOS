@@ -5,10 +5,10 @@ from django.db.models.fields.related import ForeignKey
 
 class Especialidad(models.Model):
     especialidad = models.CharField(max_length=80)
-    montoR = models.FloatField(blank=True, null=True)
+    
 
     def __str__(self):
-        return self.especialidad + ' ' + str(self.montoR)
+        return self.especialidad 
 
 class Medico(models.Model):
     rut = models.CharField(max_length=11)
@@ -18,17 +18,6 @@ class Medico(models.Model):
 
     def __str__(self):
         return self.nombreM + ' ' + self.apellidos
-    
-class Hora(models.Model):
-    fecha = models.CharField('Fecha',max_length=10, blank=True)
-    hora = models.TimeField(blank=True, null=True)
-    nombreM = models.ForeignKey(Medico, on_delete=models.CASCADE)
-
-    class Meta:
-        unique_together = ('fecha', 'hora')
-
-    def __str__(self) :
-        return self.fecha + ' ' + str(self.hora) + '  ' + str(self.nombreM.nombreM)
 
 class reserva(models.Model):
     SEXO_CHOICES = (
@@ -43,7 +32,13 @@ class reserva(models.Model):
     correo = models.EmailField('correo',max_length = 200)
     fecha_nacimiento = models.CharField('Fecha nacimiento',max_length=10, blank=True)
     sexo = models.CharField('sexo', max_length=20, choices= SEXO_CHOICES )
-    Hora = models.ForeignKey(Hora, on_delete=models.CASCADE, related_name='fecha_hora_medico', blank=True, null=True, unique=True)
+    especialidad = models.ForeignKey(Especialidad, on_delete=models.CASCADE,blank=True, null=True)
+    nombreMedico = models.ForeignKey(Medico, on_delete=models.CASCADE, blank=True)
+    fcha = models.CharField(max_length=15, blank=True)
+    hra = models.TimeField(blank=True, null=True)
+    montoR = models.FloatField(blank=True, null=True)
+
+
 
     
 

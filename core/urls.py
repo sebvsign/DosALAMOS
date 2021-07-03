@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, diario, login_medico, login_secretaria, vistamedico, paciente, recaudo, total, reservaView#,homepacientes
+from .views import home, diario, login_medico, login_secretaria, vistamedico, paciente, recaudo, total, reservaView #,homepacientes
 
 from . import views
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('paciente/', paciente, name="paciente"),
     path('recaudo/', recaudo, name="recaudo"),
     path('total/', total, name="total"),
-    #path('reserva/', views.ReservaCreateView.as_view(), name='reserva'),
+    #path('listar/', ReservaList.as_view(), name="listar"),
+    #path('reserva/',ReservaCreate.as_view(), name='reserva'),
     path('reserva/', reservaView , name='reserva'),
 ]
