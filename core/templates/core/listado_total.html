@@ -1,14 +1,13 @@
-{% block links %}
+{% block contenido %}
 <h2>TOTAL</h2>
 <table>
     <tr>
        <th>rut</th> 
        <th>nombre</th>
-       <th>apallidos</th>
+       <th>apellidos</th>
        <th>correo</th>
     </tr>
-    {% for p in reserva %}
-
+    {% for p in Reserva %}
     <tr>
         <td>{{ p.rut }}</td>
         <td>{{ p.nombre }}</td>
