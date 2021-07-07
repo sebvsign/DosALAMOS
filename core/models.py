@@ -38,6 +38,9 @@ class reserva(models.Model):
     hra = models.TimeField(blank=True, null=True)
     montoR = models.FloatField(blank=True, null=True)
 
+    def __str__(self):
+        return self.rut    
+
 
 
     

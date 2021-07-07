@@ -3,7 +3,10 @@ from django.shortcuts import render, redirect
 from .models import Especialidad,Medico, reserva
 from django.http import HttpResponse
 
+
 from .forms import ReservaForm
+from core.models import reserva
+
 
 # Create your views here.
 
@@ -44,4 +47,12 @@ def recaudo(request):
     return render(request, 'core/recaudo.html')
 
 def total(request):
-        return render(request, 'core/total.html')
+    return render(request, 'core/total.html')
+
+def listado_total(request):
+        Reserva = reserva.objects.all()
+        data = {
+            'Reserva':Reserva
+        }
+        return render(request, 'core/listado_total.html', data)
+    
