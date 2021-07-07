@@ -46,9 +46,6 @@ def paciente(request):
 def recaudo(request):
     return render(request, 'core/recaudo.html')
 
-def total(request):
-    return render(request, 'core/total.html')
-
 def listado_total(request):
         Reserva = reserva.objects.all()
         data = {
