@@ -2,6 +2,9 @@ from core.admin import ReservaAdmin
 from django.shortcuts import render, redirect
 from .models import Especialidad,Medico, reserva
 from django.http import HttpResponse
+from django.db.models import Sum
+from django.db.models import Avg, Max, Min, Count
+
 
 
 from .forms import ReservaForm
@@ -52,7 +55,9 @@ def total(request):
 def listado_total(request):
         Reserva = reserva.objects.all()
         data = {
-            'Reserva':Reserva
+            'Reserva':Reserva,
+            
         }
         return render(request, 'core/listado_total.html', data)
-    
+
+   

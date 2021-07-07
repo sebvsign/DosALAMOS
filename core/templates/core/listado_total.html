@@ -23,21 +23,50 @@
                     <th>rut</th> 
                     <th>nombre</th>
                     <th>apellidos</th>
-                    <th>correo</th>
+                    <th>sexo</th>
+                    <th>especialidad</th>
+                    <th>nombreMedico</th>
+                    <th>hra</th>
+                    <th>montoR</th>
                     </tr>
                     {% for p in Reserva %}
                     <tr>
                         <td>{{ p.rut }}</td>
                         <td>{{ p.nombre }}</td>
                         <td>{{ p.apellidos }}</td>
-                        <td>{{ p.correo }}</td>
+                        <td>{{ p.sexo }}</td>
+                        <td>{{ p.especialidad }}</td>
+                        <td>{{ p.nombreMedico }}</td>
+                        <td>{{ p.hra }}</td>
+                        <td>{{ p.montoR }}</td>
                     </tr>
                 
                     {% endfor%}
                 </table>
             </div>
             <div class="col">
-                Column
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">subtotal</th>
+                        <th scope="col">Iva</th>
+                        <th scope="col">Total a pagar</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>{'average_montoR': 34.35}</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
             </div>
             </div>
         </div>   
