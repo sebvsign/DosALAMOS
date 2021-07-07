@@ -9,8 +9,10 @@ class ReservaAdmin(admin.ModelAdmin):
    list_display =   ['rut','nombre','apellidos','sexo','especialidad','nombreMedico','hra','montoR']
    search_fields =['rut'] 
    list_per_page = 10
-
- 
+class MedicoAdmin(admin.ModelAdmin):
+   list_display = ['rut','nombreM','apellidos','especialidad']
+   search_fields =['rut'] 
+   list_per_page = 10
 
 admin.site.register(reserva, reservaAdmin)
 #class ReservaAdmin(admin.ModelAdmin):
@@ -45,6 +47,5 @@ admin.site.register(reserva, reservaAdmin)
 
 admin.site.register(Especialidad)
 admin.site.register(Medico)
-class MedicoAdmin(admin.ModelAdmin):
-   list_display = ['rut','nombreM','apellidos','especialidad']
+
 

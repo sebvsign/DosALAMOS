@@ -18,7 +18,7 @@ class Medico(models.Model):
 
     def __str__(self):
         return self.nombreM + ' ' + self.apellidos
-
+    
 class reserva(models.Model):
     SEXO_CHOICES = (
         ('0', 'Masculino'),

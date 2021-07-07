@@ -59,5 +59,4 @@ def listado_total(request):
             
         }
         return render(request, 'core/listado_total.html', data)
-
-   
+reserva.objects.aggregate(Sum('montoR')) 
