@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .models import Especialidad,Medico, reserva
 from django.http import HttpResponse
 
+
 from .forms import ReservaForm
 from core.models import reserva
 
@@ -54,3 +55,4 @@ def listado_total(request):
             'Reserva':Reserva
         }
         return render(request, 'core/listado_total.html', data)
+    
