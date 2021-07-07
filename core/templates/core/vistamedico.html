@@ -71,34 +71,20 @@
                 <table>
                 <tr>
                     <th>Primer Nombre</th>
-                    <th>Apellido</th>
+                    <th>Apellidos</th>
                     <th>Hora</th>
                     <th>Fecha</th>
                     <th>pago</th>
                 </tr>
+                {% for p in Reserva %}
                 <tr>
-                    <td>Jill</td>
-                    <td>Smith</td>
-                    <td>09:00</td>
-                    <td>21/05/2021</td>
-                    <td>$5.500</td>
+                    <td>{{ p.rut }}</td>
+                    <td>{{ p.nombre }}</td>
+                    <td>{{ p.apellidos }}</td>
+                    <td>{{ p.correo }}</td>
+                    <td>{{ p.montoR }}</td>
                 </tr>
-                <tr>
-                    <td>Eve</td>
-                    <td>Jackson</td>
-                    <td>12:00</td>
-                    <td>21/05/2021</td>
-                    <td>$13.500</td>
-                    
-                    
-                </tr>
-                <tr>
-                    <td>Adam</td>
-                    <td>Johnson</td>
-                    <td>13:30</td>
-                    <td>21/05/2021</td>
-                    <td>$16.000</td>
-                </tr>
+                {% endfor%}
                 </table>
             </div>
             <div class="tabla" id="myDIV2"  style=display:none width:100%>
@@ -113,29 +99,17 @@
                     <th>Fecha</th>
                     <th>pago</th>
                 </tr>
-                <tr>
-                    <td>Antonio</td>
-                    <td>Jorquera</td>
-                    <td>09:00</td>
-                    <td>27/05/2021</td>
-                    <td>Sin Pago</td>
-                </tr>
-                <tr>
-                    <td>Erica</td>
-                    <td>Lopez</td>
-                    <td>12:00</td>
-                    <td>27/05/2021</td>
-                    <td>Sin pago</td>
-                    
-                    
-                </tr>
-                <tr>
-                    <td>Matias</td>
-                    <td>Zapata</td>
-                    <td>13:30</td>
-                    <td>27/05/2021</td>
-                    <td>Sin Pago</td>
-                </tr>
+                {% for p in Reserva %}
+                  {% if p.montoR == 0 %}
+                  <tr>
+                      <td>{{ p.rut }}</td>
+                      <td>{{ p.nombre }}</td>
+                      <td>{{ p.apellidos }}</td>
+                      <td>{{ p.correo }}</td>
+                      <td>{{ p.montoR }}</td>
+                  </tr>
+                  {% endif%} 
+                {% endfor%}
                 </table>
             </div>
             <div class="tabla" id="myDIV3"  style=display:none width:100%>

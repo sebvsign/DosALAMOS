@@ -11,13 +11,13 @@
 	{% block login%}
 		<div class="container-login100-form-btn m-t-32" >
 				<button Class="login100-form-btn" OnClick="Button1_Click" >
-					<a href="vistamedico.html">Entrar</a>
+					<a href="{% url 'vistamedico' %}">Entrar</a>
 				</button>
 
 
 		</div>
 		<div>
 			<button class="container-login100-form-btn m-t-32">
-				<a href="Home.html">volver</a>
+				<a href="{% url 'home' %}">volver</a>
 			</button>
 	{% endblock %}

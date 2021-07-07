@@ -38,7 +38,11 @@ def login_secretaria(request):
     return render(request, 'core/login_secretaria.html')
 
 def vistamedico(request):
-    return render(request, 'core/vistamedico.html')
+        Reserva = reserva.objects.all()
+        dt = {
+            'Reserva':Reserva
+        }
+        return render(request, 'core/vistamedico.html', dt)
 
 def paciente(request):
     return render(request, 'core/paciente.html')
