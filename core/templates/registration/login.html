@@ -1,0 +1,61 @@
+{% extends 'core/base_login.html'%}
+{% load static %}
+{% block content %}
+
+{% block acceso %}
+  Accesos
+{% endblock %}
+
+
+    
+		          
+          
+              {% block form1 %}
+              <div class="container-login100-form-btn m-t-32" >
+              {% if form.errors %}
+              <p>Your username and password didn't match. Please try again.</p>
+              {% endif %}
+
+              {% if next %}
+              {% if user.is_authenticated %}
+              <p>Your account doesn't have access to this page. To proceed,
+              please login with an account that has access.</p>
+              {% else %}
+              <p>Please login to see this page.</p>
+              {% endif %}
+              {% endif %}
+                <form id="form1" method="post" class="login100-form validate-form p-b-33 p-t-5" action="{% url 'login' %}">
+                {% csrf_token %}
+
+                <div>
+                  <td>{{ form.username.label_tag }}</td>
+                  <td>{{ form.username }}</td>
+                </div>
+                <div>
+                  <td>{{ form.password.label_tag }}</td>
+                  <td>{{ form.password }}</td>
+                </div>
+                
+                <div class="container-login100-form-btn m-t-32" >
+                  <input Class="login100-form-btn" type="submit" value="Entrar" />
+                  <input type="hidden" name="next" value="{{ next }}" />
+                </div>
+                </form>
+            
+          
+                <div>
+                <button class="container-login100-form-btn m-t-32">
+                  <a href={% url 'home' %}>volver</a>
+                </button>
+
+                </div>
+                <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+              {% endblock %}
+	  
+         
+
+        {# Assumes you setup the password_reset view in your URLconf #}
+        
+        
+        
+{% endblock %}

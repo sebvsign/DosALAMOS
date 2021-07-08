@@ -32,12 +32,22 @@
 <body>
   
     <div class="limiter">
+    <ul class="sidebar-nav">...
+            {% if user.is_authenticated %}
+                <li>User: {{ user.get_username }}</li>
+                <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+            {% endif %} 
+                </ul>
+        </ul>
         <ul class="topnav">
-            <li><a href="vistamedico">Inicio</a></li>
+            <li><a href="#">Inicio</a></li>
             <li><a onclick="myFunction()" href="#Citas Agendadas">Citas Agendadas</a></li>
             <li><a onclick="myFunction2()" href="#Citas En Espera">Citas en espera</a></li>
             <li><a onclick="myFunction3()" href="#Atencion a paciente">Atencion a paciente</a></li>
-            <li style="float:right"><a class="active" href="#">Salir</a></li>
+            
+            <li style="float:right"><a href="{% url 'home' %}" class="active">Salir</a></li>
             
             
           
@@ -77,13 +87,16 @@
                     <th>pago</th>
                 </tr>
                 {% for p in Reserva %}
-                <tr>
-                    <td>{{ p.rut }}</td>
-                    <td>{{ p.nombre }}</td>
-                    <td>{{ p.apellidos }}</td>
-                    <td>{{ p.correo }}</td>
-                    <td>{{ p.montoR }}</td>
-                </tr>
+
+                {% if p.montoR > 0 %}
+                  <tr>
+                      <td>{{ p.rut }}</td>
+                      <td>{{ p.nombre }}</td>
+                      <td>{{ p.apellidos }}</td>
+                      <td>{{ p.correo }}</td>
+                      <td>{{ p.montoR }}</td>
+                  </tr>
+                  {% endif%}
                 {% endfor%}
                 </table>
             </div>

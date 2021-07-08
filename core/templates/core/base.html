@@ -31,17 +31,11 @@
                     <a href="{% url 'reserva' %}">Reservar una Hora</a>
                 </li>
                 <li>
-                    <a href="{% url 'login_medico' %}">Acceso medico</a>
-                </li>
-                <li>
-                    <a href="{% url 'login_secretaria' %}">Acceso secretaria</a>
-                </li>
-                <li>
                     <div class="dropdown">
                         <button class="dropbtn">Otros Accesos</button>
                         <div class="dropdown-content">
-                            <a href="Login.html">Acceso Medicos</a>
-                            <a href="Login secretaria.html">Secretaria</a>
+                            <a href="{% url 'login' %}">Acceso medico</a>
+                            <a href="{% url 'login_secretaria' %}">Acceso secretaria</a>
                         </div>
                     </div>
                 </li>

@@ -7,7 +7,7 @@
 	{% block acceso %}
 	 Acceso Medico
 	{% endblock %}
-
+{% block form1 %}
 	{% block login%}
 		<div class="container-login100-form-btn m-t-32" >
 				<button Class="login100-form-btn" OnClick="Button1_Click" >
@@ -21,3 +21,4 @@
 				<a href="{% url 'home' %}">volver</a>
 			</button>
 	{% endblock %}
+{% endblock %}

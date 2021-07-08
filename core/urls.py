@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from .views import home, login_medico, recaudo, login_secretaria, vistamedico, reservaView, listado_total #,homepacientes
 
 from . import views
@@ -18,5 +18,5 @@ urlpatterns = [
     #path('reserva/',ReservaCreate.as_view(), name='reserva'),
     path('reserva/', reservaView , name='reserva'),
     path('listado_total/', listado_total, name="listado_total"),
-
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
